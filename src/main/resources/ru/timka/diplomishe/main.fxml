@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:id="mainContainer" styleClass="main-container"
+      fx:controller="ru.timka.diplomishe.controller.MainController"
+      spacing="15">
+
+    <Label text="Агрегатор цен интернет-магазинов" styleClass="app-title"/>
+
+    <!-- Панель выбора магазина -->
+    <HBox styleClass="store-selector" spacing="10">
+        <Button fx:id="ozonButton" text="Ozon" styleClass="store-button"/>
+        <Button fx:id="wildberriesButton" text="Wildberries" styleClass="store-button"/>
+        <Button fx:id="yandexMarketButton" text="Яндекс.Маркет" styleClass="store-button"/>
+    </HBox>
+
+    <!-- Информационная панель -->
+    <VBox styleClass="info-panel" spacing="10">
+        <Label fx:id="storeInfoLabel" text="Выберите магазин" styleClass="store-info"/>
+
+        <!-- Панель поиска -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Поиск товаров:" styleClass="filter-label"/>
+            <TextField fx:id="searchField" styleClass="search-field"
+                       promptText="Введите название товара..." prefWidth="350"/>
+        </HBox>
+
+        <!-- Панель фильтрации по цене -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Цена:" styleClass="filter-label"/>
+            <TextField fx:id="minPriceField" styleClass="price-field" promptText="От" prefWidth="100"/>
+            <Label text="—" styleClass="price-separator"/>
+            <TextField fx:id="maxPriceField" styleClass="price-field" promptText="До" prefWidth="100"/>
+            <Button fx:id="applyFilterButton" text="Применить" styleClass="filter-button"/>
+            <Button fx:id="resetFilterButton" text="Сбросить" styleClass="filter-button"/>
+        </HBox>
+    </VBox>
+
+    <!-- Список товаров -->
+    <VBox spacing="5" VBox.vgrow="ALWAYS">
+        <Label text="Доступные товары:" styleClass="list-header"/>
+        <ListView fx:id="productsListView" styleClass="product-list" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</VBox>
